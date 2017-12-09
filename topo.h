@@ -81,7 +81,6 @@ void topo::find(Course course[], char temp[], int cur)//依次读入 int课程�
 		++pos;//跳过'c'
 		int num = read_num(temp, pos);
 		course[cur].number = num;
-		//cout << "course[cur].number:"<< course[cur].number ;
 	}
 	while (temp[pos] == ' ')pos++;  //跳过空格
 	if (1)//读入课程名称
@@ -93,21 +92,18 @@ void topo::find(Course course[], char temp[], int cur)//依次读入 int课程�
 			pos++;
 		}
 		course[cur].name[i] = '\0';
-		//cout << "   course[cur].name:" << course[cur].name ;
 	}
 	while (temp[pos] == ' ')pos++;  //跳过空格
 	if (1)//读入学时数
 	{
 		int num = read_num(temp, pos);
 		course[cur].hours = num;
-		//cout << "  course[cur].hours:" <<course[cur].hours << "  " ;
 	}
 	while (temp[pos] == ' ')pos++;  //跳过空格
 	if (1)//读入指定开课学期
 	{
 		int num = read_num(temp, pos);
 		course[cur].term = num;
-		//cout << "  course[cur].term:" << course[cur].term ;
 	}
 	while (temp[pos] == ' ')pos++;  //跳过空格
 	for (int i = 0;temp[pos] == 'c';i++)//读入先决条件
@@ -116,7 +112,6 @@ void topo::find(Course course[], char temp[], int cur)//依次读入 int课程�
 		int num = read_num(temp, pos);
 		course[cur].condition[i] = num;
 		course[cur].in++;//入度加一
-		//cout << "  course[cur].condition[" << i << "]:" << course[cur].condition[i] << endl;
 		if (temp[pos] != '\0')
 		{
 			pos++;  //跳过前提条件间的空格
