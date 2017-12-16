@@ -27,7 +27,7 @@ public:
 	void find(Course course[], char temp[],int cur);
 
 	void sort(Course course[], int table[]);//排序
-	void cancel(int cur,int j);
+	void cancel(int cur,int j);//结算入度
 
 	void output(int table[]);//输出
 };
@@ -132,6 +132,11 @@ void topo::cancel(int cur,int j)
 				if (course[temp_cur].start < j+1)
 				{
 					course[temp_cur].start = j+1;
+					if (course[temp_cur].start == 8)
+					{
+						cout << "error1" << endl;
+						exit(0);
+					}
 				}
 				break;
 			}
@@ -164,6 +169,11 @@ void topo::sort(Course course[], int table[])
 						course[cur].sign = 0;//已统计
 						break;
 					}
+					if (temp_table[course[cur].term - 1][i+1] == -1)
+					{
+						cout << "error2" << endl;
+						exit(0);
+					}
 				}
 			}
 		}
@@ -192,6 +202,11 @@ void topo::sort(Course course[], int table[])
 								jump = 1;
 							}
 							if (jump == 1) break;
+							if (j == 7 && temp_table[j][i + 1] == -1)
+							{
+								cout << "error3" << endl;
+								exit(0);
+							}
 						}
 						if (jump == 1) break;
 					}
