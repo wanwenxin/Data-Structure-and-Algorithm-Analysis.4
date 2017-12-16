@@ -16,9 +16,9 @@ void main()
 		{
 			readname();
 			topo course_topo;
-			course_topo.read(course_topo.course, course_topo.temp);
-			course_topo.sort(course_topo.course, course_topo.table);
-			course_topo.output(course_topo.table);
+			course_topo.read(course_topo.course, course_topo.temp);         //读入课程信息
+			course_topo.sort(course_topo.course, course_topo.table);        //topo排序
+			course_topo.output(course_topo.table);                          //将排好的课表输出
 			close_file();
 		}
 		else if (command == 2)
@@ -31,3 +31,4 @@ void main()
 		}
 	}
 }
+
